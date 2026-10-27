@@ -26,7 +26,7 @@ FALLBACK = 0.0
 
 # ★★ 2026-10-27 10:29：路径改成「环境变量优先，默认值不变」。
 #   原因：要把这套东西发给别人家的小鱼（B站观众点题），
-#   而原来这里写死 `C:\sts_bridge` 和 `E:\小肥鱼工作间\research` ——
+#   而原来这里写死了两个绝对路径 ——
 #   别人拷过去跑不起来，只能改代码，那就是「教程没交代清楚」。
 #   现在：设了 STS_BRIDGE_DIR / STS_WORK_DIR 就用设的，没设还用我原来的路径。
 #   ⇒ 不设也能跑：桥目录默认 C:\sts_bridge，工作目录默认 <桥目录>/work。
@@ -914,8 +914,9 @@ def _parse_argv():
     return args, timeout
 
 
-CHANGELOG = (Path(__file__).resolve().parent.parent
-             / "鲸鱼记忆库" / "60-资料" / "尖塔" / "22-桥改动日志.md")
+# 改动日志就放在 manual/ 里（跟着包走，别人也有一份）
+CHANGELOG = Path(os.environ.get("STS_MANUAL_DIR")
+                 or (Path(__file__).resolve().parent / "manual")) / "22-桥改动日志.md"
 
 
 def show_changes():
@@ -1105,7 +1106,7 @@ def main():
             head = (f"--- 上下文 {_c['used']:,}/{_c['window']:,} = {_pct:.0f}% "
                     f"[{_bar}]{_tag} ---\n"
                     # ★ 2026-10-27 03:33：把「读的是哪个会话」显示出来。
-                    #   医生说：「看见错的总比看不见强。」
+                    #   一条教训：「看见错的总比看不见强。」
                     #   今晚我下过一个错结论（说 ctx.py 读错会话、读的是别人的），
                     #   就是因为这个数从不露头 —— 我看不到，就只能猜，猜完还自信。
                     #   现在它每次都亮出来：错了能当场看见，不用等它不响。

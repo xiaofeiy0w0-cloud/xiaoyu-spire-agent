@@ -1,0 +1,57 @@
+# ─────────── 运行时数据（绝不提交）───────────
+state.json
+state.txt
+cmd.txt
+bridge.log
+auto.log
+save.log
+watch.log
+hint_seen.txt
+stance.txt
+ctx_last.json
+ctx_last.json.bak
+
+# st.py 运行时自己建的工作目录
+work/
+digest.txt
+
+# ─────────── 存档 / 备份 ───────────
+saves_bak/
+backup/
+*.bak
+
+# ─────────── 截图 / 图片（可能带桌面隐私）───────────
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.webp
+
+# ─────────── Python ───────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# ─────────── 编辑器 / 系统 ───────────
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ─────────── 凭证（万一有人手滑）───────────
+*.token
+.env
+.env.*
+secrets.*
+*credentials*
+*.pem
+*.key
